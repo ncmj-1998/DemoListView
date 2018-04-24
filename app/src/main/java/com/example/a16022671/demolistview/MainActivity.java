@@ -34,5 +34,17 @@ public class MainActivity extends AppCompatActivity {
         aa = new FoodAdapter(this, R.layout.row, food);
         lv.setAdapter(aa);
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Food selectedFood = food.get(position);
+
+                Toast.makeText(MainActivity.this, selectedFood.getName()
+                                + " Star: " + selectedFood.isStar(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
 }
 }
